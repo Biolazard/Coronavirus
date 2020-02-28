@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Covid {
     let country: String
@@ -14,4 +15,5 @@ struct Covid {
     let confirmed: String
     let deaths: String
     let recovered: String
+    let coordinates: CLLocationCoordinate2D
 }
