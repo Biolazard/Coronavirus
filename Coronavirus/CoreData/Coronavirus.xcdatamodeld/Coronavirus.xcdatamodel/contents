@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Coronavirus" representedClassName="Covid19" syncable="YES" codeGenerationType="class">
+        <attribute name="confirmed" attributeType="String" defaultValueString=""/>
+        <attribute name="country" attributeType="String" defaultValueString=""/>
+        <attribute name="deaths" attributeType="String" defaultValueString=""/>
+        <attribute name="lastUpdate" attributeType="String" defaultValueString=""/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="recovered" attributeType="String" defaultValueString=""/>
+    </entity>
+    <elements>
+        <element name="Coronavirus" positionX="-63" positionY="-18" width="128" height="148"/>
+    </elements>
+</model>

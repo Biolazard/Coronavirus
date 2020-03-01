@@ -15,6 +15,11 @@
 		A41D2788240674A900BC964F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41D2786240674A900BC964F /* LaunchScreen.storyboard */; };
 		A41D27902406837700BC964F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D278F2406837600BC964F /* Network.swift */; };
 		A41D279224068DB400BC964F /* Covid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D279124068DB400BC964F /* Covid.swift */; };
+		B66864322409290600799E1C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66864312409290600799E1C /* TabBarViewController.swift */; };
+		B668643424092CF400799E1C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B668643324092CF400799E1C /* TableViewController.swift */; };
+		B6686436240931E100799E1C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6686435240931E100799E1C /* DetailViewController.swift */; };
+		B668643A24093C5900799E1C /* Coronavirus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B668643824093C5900799E1C /* Coronavirus.xcdatamodeld */; };
+		B668643C24093CFB00799E1C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B668643B24093CFB00799E1C /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		A41D2789240674A900BC964F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A41D278F2406837600BC964F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A41D279124068DB400BC964F /* Covid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid.swift; sourceTree = "<group>"; };
+		B66864312409290600799E1C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		B668643324092CF400799E1C /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		B6686435240931E100799E1C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B668643924093C5900799E1C /* Coronavirus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Coronavirus.xcdatamodel; sourceTree = "<group>"; };
+		B668643B24093CFB00799E1C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +72,13 @@
 			children = (
 				A41D277B240674A400BC964F /* AppDelegate.swift */,
 				A41D277D240674A400BC964F /* SceneDelegate.swift */,
+				B668643724093BB800799E1C /* CoreData */,
 				A41D27942406C7AD00BC964F /* Network */,
 				A41D27932406C7AB00BC964F /* Model */,
 				A41D277F240674A400BC964F /* MainViewController.swift */,
+				B668643324092CF400799E1C /* TableViewController.swift */,
+				B6686435240931E100799E1C /* DetailViewController.swift */,
+				B66864312409290600799E1C /* TabBarViewController.swift */,
 				A41D2781240674A400BC964F /* Main.storyboard */,
 				A41D2784240674A900BC964F /* Assets.xcassets */,
 				A41D2786240674A900BC964F /* LaunchScreen.storyboard */,
@@ -87,6 +101,15 @@
 				A41D278F2406837600BC964F /* Network.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		B668643724093BB800799E1C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B668643824093C5900799E1C /* Coronavirus.xcdatamodeld */,
+				B668643B24093CFB00799E1C /* DataController.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,10 +184,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A41D279224068DB400BC964F /* Covid.swift in Sources */,
+				B668643424092CF400799E1C /* TableViewController.swift in Sources */,
 				A41D2780240674A400BC964F /* MainViewController.swift in Sources */,
 				A41D277C240674A400BC964F /* AppDelegate.swift in Sources */,
 				A41D27902406837700BC964F /* Network.swift in Sources */,
+				B668643C24093CFB00799E1C /* DataController.swift in Sources */,
+				B66864322409290600799E1C /* TabBarViewController.swift in Sources */,
+				B668643A24093C5900799E1C /* Coronavirus.xcdatamodeld in Sources */,
 				A41D277E240674A400BC964F /* SceneDelegate.swift in Sources */,
+				B6686436240931E100799E1C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +390,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B668643824093C5900799E1C /* Coronavirus.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B668643924093C5900799E1C /* Coronavirus.xcdatamodel */,
+			);
+			currentVersion = B668643924093C5900799E1C /* Coronavirus.xcdatamodel */;
+			path = Coronavirus.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A41D2770240674A400BC964F /* Project object */;
 }

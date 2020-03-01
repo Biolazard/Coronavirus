@@ -16,18 +16,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getRightAPI(date: getToday())
-    }
-    
-    func getRightAPI(date: String) {
-        
-        Network.genericDownload(url: URL(string: "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/test/\(date).csv")!, completion: { c19 in
-            if c19.isEmpty {
-                return self.getRightAPI(date: self.getRightDate(date: date))
-            } else {
-                self.addAnnotation(covid: c19)
-            }
-        })
     }
     
     func addAnnotation(covid: [Covid]) {
@@ -41,18 +29,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    func getRightDate(date: String) -> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy"
-        let calculateYesterday = dateFormatter.date(from: date)
-        let yesterday = calculateYesterday!.timeIntervalSince1970 - 86400
-        return dateFormatter.string(from: Date(timeIntervalSince1970: yesterday))
-    }
     
-    func getToday() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy"
-        return dateFormatter.string(from: Date())
-    }
 }
 
