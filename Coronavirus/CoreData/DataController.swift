@@ -35,38 +35,33 @@ class DataController: NSObject {
         caseOfCoronavirus.longitude = c19.coordinates.longitude
         do {
             try manageContext.save()
+            
         } catch {
             fatalError("ERROR SAVE CORE DATA \(error)")
         }
         
     }
     
-    func deleteData(completion: @escaping () -> ()) {
+    func emptyData() {
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Coronavirus")
         let delete = NSBatchDeleteRequest(fetchRequest: fetch)
         let manageContext = self.persistentContainer.viewContext
         do {
             try manageContext.execute(delete)
-            completion()
-        } catch {
-            fatalError("ERROR DELETE DATA \(error)")
-        }
+        } catch {}
     }
     
-    func getDataSpread() -> [Covid19] {
+    func getDataSpread(completion: @escaping ([Covid19]) -> ()){
         let fetch = NSFetchRequest<Covid19>(entityName: "Coronavirus")
         do {
             let datas = try persistentContainer.viewContext.fetch(fetch)
-            return datas
-        } catch {
-            fatalError("ERROR FETCH CORE DATA \(error)")
-        }
+            completion(datas)
+        } catch {}
     }
     
 }
 
 extension DataController {
-    
     
     func insertLastUpdate(date: String) {
         if let lastUpdate = self.getLastUpdate(), lastUpdate < date {

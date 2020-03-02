@@ -11,16 +11,14 @@ import UIKit
 class DetailViewController: UIViewController {
 
     
-    var data: Covid!
+    var data: Covid19!
     
-    func injectDependices(data: Covid) {
+    func injectDependices(data: Covid19) {
         self.data = data
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(data)
-        // Do any additional setup after loading the view.
     }
 
 

@@ -19,7 +19,11 @@ class DataManager {
     let coreData = DataController()
     var delegate: CoronavirusDelegate?
     
-    func getCoronavirus() {
+    init() {
+        refreshData()
+    }
+    
+    func refreshData() {
         getRightAPI(date: getToday())
     }
     

@@ -10,22 +10,21 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MainViewController: UIViewController {
+class WorldSpreadController: UIViewController, CoronavirusDelegate {
 
     
     @IBOutlet weak var map: MKMapView!
     
-    let coreData = DataController()
+    var dataManager: DataManager!
+    
+    func dependencyInjection(dataManager: DataManager) {
+        self.dataManager = dataManager
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        addAnnotation(covid: coreData.getDataSpread())
+        dataManager.delegate = self
+        dataManager.refreshData()
     }
     
     func addAnnotation(covid: [Covid19]) {
@@ -39,6 +38,8 @@ class MainViewController: UIViewController {
         }
     }
     
-    
+    func showData(data: [Covid19]) {
+        addAnnotation(covid: data)
+    }
 }
 
