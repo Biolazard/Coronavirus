@@ -32,7 +32,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         let c19 = self.c19[indexPath.row]
-        cell.textLabel?.text = c19.country
+        cell.textLabel?.text = ("\(c19.country), death \(c19.deaths), recovered \(c19.recovered), confirmed \(c19.confirmed)")
         return cell
     }
     

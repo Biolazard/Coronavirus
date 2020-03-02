@@ -8,21 +8,31 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MainViewController: UIViewController {
 
     
     @IBOutlet weak var map: MKMapView!
     
+    let coreData = DataController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addAnnotation(covid: coreData.getDataSpread())
     }
     
-    func addAnnotation(covid: [Covid]) {
+    func addAnnotation(covid: [Covid19]) {
         for c in covid {
             let annotation = MKPointAnnotation()
             annotation.title = c.country
-            annotation.coordinate = c.coordinates
+            annotation.coordinate = CLLocationCoordinate2D(latitude: c.latitude, longitude: c.longitude)
             DispatchQueue.main.async {
                 self.map.addAnnotation(annotation)
             }

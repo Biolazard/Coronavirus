@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class DataController: NSObject {
-
+    
     
     private var persistentContainer: NSPersistentContainer
     
@@ -36,17 +36,71 @@ class DataController: NSObject {
         do {
             try manageContext.save()
         } catch {
-            debugPrint("ERROR SAVE CORE DATA \(error)")
+            fatalError("ERROR SAVE CORE DATA \(error)")
+        }
+        
+    }
+    
+    func deleteData(completion: @escaping () -> ()) {
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Coronavirus")
+        let delete = NSBatchDeleteRequest(fetchRequest: fetch)
+        let manageContext = self.persistentContainer.viewContext
+        do {
+            try manageContext.execute(delete)
+            completion()
+        } catch {
+            fatalError("ERROR DELETE DATA \(error)")
         }
     }
     
-    func fetchData() {
+    func getDataSpread() -> [Covid19] {
         let fetch = NSFetchRequest<Covid19>(entityName: "Coronavirus")
         do {
             let datas = try persistentContainer.viewContext.fetch(fetch)
-            print("DATA FETCHED \(datas.count)")
+            return datas
         } catch {
-            debugPrint("ERROR FETCH CORE DATA \(error)")
+            fatalError("ERROR FETCH CORE DATA \(error)")
+        }
+    }
+    
+}
+
+extension DataController {
+    
+    
+    func insertLastUpdate(date: String) {
+        if let lastUpdate = self.getLastUpdate(), lastUpdate < date {
+            self.deleteLastUpdate()
+        }
+        let manageContext = self.persistentContainer.viewContext
+        let update = NSEntityDescription.insertNewObject(forEntityName: "Aggiornamento", into: manageContext) as! Aggiornamento
+        update.lastUpdate = date
+        do {
+            try manageContext.save()
+        } catch {
+            fatalError("ERROR INSERT LAST UPDATE \(error)")
+        }
+        
+    }
+    
+    func getLastUpdate() -> String? {
+        let fetch = NSFetchRequest<Aggiornamento>(entityName: "Aggiornamento")
+        do {
+            let datas = try persistentContainer.viewContext.fetch(fetch)
+            return datas.first?.lastUpdate
+        } catch {
+            fatalError("ERROR FETCH LAST UPDATE \(error)")
+        }
+    }
+    
+    private func deleteLastUpdate() {
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Aggiornamento")
+        let delete = NSBatchDeleteRequest(fetchRequest: fetch)
+        let manageContext = self.persistentContainer.viewContext
+        do {
+            try manageContext.execute(delete)
+        } catch {
+            fatalError("ERROR DELETE LAST UPDATE \(error)")
         }
     }
 }
