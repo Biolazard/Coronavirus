@@ -15,6 +15,7 @@
 		A41D2788240674A900BC964F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41D2786240674A900BC964F /* LaunchScreen.storyboard */; };
 		A41D27902406837700BC964F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D278F2406837600BC964F /* Network.swift */; };
 		A41D279224068DB400BC964F /* Covid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D279124068DB400BC964F /* Covid.swift */; };
+		A4CA50D4240D621B00CEE23E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CA50D3240D621B00CEE23E /* DataManager.swift */; };
 		B66864322409290600799E1C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66864312409290600799E1C /* TabBarViewController.swift */; };
 		B668643424092CF400799E1C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B668643324092CF400799E1C /* TableViewController.swift */; };
 		B6686436240931E100799E1C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6686435240931E100799E1C /* DetailViewController.swift */; };
@@ -33,6 +34,7 @@
 		A41D2789240674A900BC964F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A41D278F2406837600BC964F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A41D279124068DB400BC964F /* Covid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid.swift; sourceTree = "<group>"; };
+		A4CA50D3240D621B00CEE23E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		B66864312409290600799E1C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B668643324092CF400799E1C /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B6686435240931E100799E1C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				A41D277B240674A400BC964F /* AppDelegate.swift */,
 				A41D277D240674A400BC964F /* SceneDelegate.swift */,
+				A4CA50D5240D622100CEE23E /* Manager */,
 				B668643724093BB800799E1C /* CoreData */,
 				A41D27942406C7AD00BC964F /* Network */,
 				A41D27932406C7AB00BC964F /* Model */,
@@ -101,6 +104,14 @@
 				A41D278F2406837600BC964F /* Network.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		A4CA50D5240D622100CEE23E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A4CA50D3240D621B00CEE23E /* DataManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		B668643724093BB800799E1C /* CoreData */ = {
@@ -191,6 +202,7 @@
 				B668643C24093CFB00799E1C /* DataController.swift in Sources */,
 				B66864322409290600799E1C /* TabBarViewController.swift in Sources */,
 				B668643A24093C5900799E1C /* Coronavirus.xcdatamodeld in Sources */,
+				A4CA50D4240D621B00CEE23E /* DataManager.swift in Sources */,
 				A41D277E240674A400BC964F /* SceneDelegate.swift in Sources */,
 				B6686436240931E100799E1C /* DetailViewController.swift in Sources */,
 			);
