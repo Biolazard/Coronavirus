@@ -24,7 +24,7 @@ class WorldSpreadController: UIViewController, CoronavirusDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataManager.delegate = self
-        dataManager.refreshData()
+//        dataManager.refreshData()
     }
     
     func addAnnotation(covid: [Covid19]) {

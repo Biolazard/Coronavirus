@@ -11,12 +11,14 @@ import CoreLocation
 
 class Network {
 
-    class func genericDownload(url: URL, completion: @escaping ([Covid]) -> Void) {
+    class func genericDownload(url: URL, completion: @escaping ([Covid]) -> Void, handleError: @escaping (Error) -> Void) {
         
         var regionsInfected = [Covid]()
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard error == nil else { return }
+            if let error = error {
+                handleError(error)
+            }
             if let data = data, var responseString = String(data: data, encoding: .utf8) {
                 responseString = responseString.replacingOccurrences(of: "\"", with: "")
                 let lines = responseString.split(separator: "\n")
@@ -37,6 +39,7 @@ class Network {
                     let infects = Covid(country: country, lastUpdate: lastUpdate, confirmed: confimerd, deaths: deaths, recovered: recovered, coordinates: coordinates)
                     regionsInfected.append(infects)
                 }
+                print("REQUEST URL \(url)")
                 completion(regionsInfected)
             }
         }.resume()

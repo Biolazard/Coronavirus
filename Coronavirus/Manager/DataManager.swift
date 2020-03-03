@@ -29,7 +29,7 @@ class DataManager {
     
     private func getRightAPI(date: String) {
         if isOldDate(lastDate: coreData.getLastUpdate(), newDate: date) {
-            Network.genericDownload(url: URL(string: "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/test/\(date).csv")!, completion: { c19 in
+            Network.genericDownload(url: URL(string: "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/\(date).csv")!, completion: { c19 in
                 if c19.isEmpty {
                     return self.getRightAPI(date: self.getRightDate(date: date))
                 } else {
@@ -41,6 +41,11 @@ class DataManager {
                     self.coreData.getDataSpread { covid in
                         self.delegate?.showData(data: covid)
                     }
+                }
+            }, handleError: { _ in
+                self.coreData.getDataSpread { covid in
+                    let covid = covid.isEmpty ? [Covid19]() : covid
+                    self.delegate?.showData(data: covid)
                 }
             })
         } else {

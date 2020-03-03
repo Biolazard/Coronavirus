@@ -37,7 +37,7 @@ class DataController: NSObject {
             try manageContext.save()
             
         } catch {
-            fatalError("ERROR SAVE CORE DATA \(error)")
+            debugPrint("ERROR SAVE CORE DATA \(error)")
         }
         
     }
@@ -48,7 +48,9 @@ class DataController: NSObject {
         let manageContext = self.persistentContainer.viewContext
         do {
             try manageContext.execute(delete)
-        } catch {}
+        } catch {
+            debugPrint("ERROR EMPTY DATA \(error)")
+        }
     }
     
     func getDataSpread(completion: @escaping ([Covid19]) -> ()){
@@ -56,7 +58,9 @@ class DataController: NSObject {
         do {
             let datas = try persistentContainer.viewContext.fetch(fetch)
             completion(datas)
-        } catch {}
+        } catch {
+            debugPrint("ERROR GET SPREAD \(error)")
+        }
     }
     
 }
@@ -73,7 +77,7 @@ extension DataController {
         do {
             try manageContext.save()
         } catch {
-            fatalError("ERROR INSERT LAST UPDATE \(error)")
+            debugPrint("ERROR INSERT LAST UPDATE \(error)")
         }
         
     }
@@ -84,8 +88,9 @@ extension DataController {
             let datas = try persistentContainer.viewContext.fetch(fetch)
             return datas.first?.lastUpdate
         } catch {
-            fatalError("ERROR FETCH LAST UPDATE \(error)")
+            debugPrint("ERROR FETCH LAST UPDATE \(error)")
         }
+        return ""
     }
     
     private func deleteLastUpdate() {
@@ -95,7 +100,7 @@ extension DataController {
         do {
             try manageContext.execute(delete)
         } catch {
-            fatalError("ERROR DELETE LAST UPDATE \(error)")
+            debugPrint("ERROR DELETE LAST UPDATE \(error)")
         }
     }
 }
