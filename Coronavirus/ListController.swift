@@ -15,14 +15,6 @@ class ListController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var dataManager: DataManager!
     
-    var c19 = [Covid19]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.table.reloadData()
-            }
-        }
-    }
-    
     func dependencyInjection(dataManager: DataManager) {
         self.dataManager = dataManager
     }
@@ -30,30 +22,31 @@ class ListController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         dataManager.delegate = self
-        dataManager.refreshData()
     }
     
-    func showData(data: [Covid19]) {
-        self.c19 = data
+    func showData() {
+        table.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return c19.count
+        return dataManager.coronavirus.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! DailyReport
-        let c19 = self.c19[indexPath.row]
+        cell.accessoryType = .disclosureIndicator
+        let c19 = dataManager.coronavirus[indexPath.row]
         cell.country.text = c19.country
         cell.confirmed.text = "Confirmed \(c19.confirmed ?? "")"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let c19 = self.c19[indexPath.row]
-        let vc = DetailViewController()
+        tableView.deselectRow(at: indexPath, animated: true)
+        let c19 = dataManager.coronavirus[indexPath.row]
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "details") as! DetailViewController
         vc.injectDependices(data: c19)
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 

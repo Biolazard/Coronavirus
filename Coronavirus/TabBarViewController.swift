@@ -19,7 +19,6 @@ class TabBarViewController: UITabBarController {
                 map.dependencyInjection(dataManager: dataManager)
             }
             if let nav = vc as? UINavigationController, let table = nav.topViewController as? ListController {
-                
                 table.dependencyInjection(dataManager: dataManager)
             }
         })

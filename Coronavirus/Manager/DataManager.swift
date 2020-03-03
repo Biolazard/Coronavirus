@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol CoronavirusDelegate {
-    func showData(data: [Covid19])
+    func showData()
 }
 
 class DataManager {
@@ -18,6 +18,11 @@ class DataManager {
     
     let coreData = DataController()
     var delegate: CoronavirusDelegate?
+    var coronavirus = [Covid19]() {
+        didSet {
+            self.delegate?.showData()
+        }
+    }
     
     init() {
         refreshData()
@@ -39,18 +44,20 @@ class DataManager {
                     }
                     self.coreData.insertLastUpdate(date: date)
                     self.coreData.getDataSpread { covid in
-                        self.delegate?.showData(data: covid)
+                        self.coronavirus = covid
                     }
                 }
             }, handleError: { _ in
                 self.coreData.getDataSpread { covid in
                     let covid = covid.isEmpty ? [Covid19]() : covid
-                    self.delegate?.showData(data: covid)
+                    
+                    self.coronavirus = covid
                 }
             })
         } else {
             coreData.getDataSpread { covid in
-                self.delegate?.showData(data: covid)
+                self.coronavirus = covid
+                
             }
         }
     }

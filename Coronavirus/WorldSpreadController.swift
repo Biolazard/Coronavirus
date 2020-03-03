@@ -24,13 +24,18 @@ class WorldSpreadController: UIViewController, CoronavirusDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataManager.delegate = self
-//        dataManager.refreshData()
+        addAnnotation(covid: dataManager.coronavirus)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func addAnnotation(covid: [Covid19]) {
         for c in covid {
             let annotation = MKPointAnnotation()
-            annotation.title = c.country
+            annotation.title = "Confirmed \(c.confirmed ?? "")"
+            annotation.subtitle = c.country
             annotation.coordinate = CLLocationCoordinate2D(latitude: c.latitude, longitude: c.longitude)
             DispatchQueue.main.async {
                 self.map.addAnnotation(annotation)
@@ -38,8 +43,9 @@ class WorldSpreadController: UIViewController, CoronavirusDelegate {
         }
     }
     
-    func showData(data: [Covid19]) {
-        addAnnotation(covid: data)
+    func showData() {
+        map.removeAnnotations(map.annotations)
+        addAnnotation(covid: dataManager.coronavirus)
     }
 }
 
