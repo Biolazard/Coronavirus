@@ -15,22 +15,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpf-dB-WdI">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XdM-4g-ySq" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                            </mapView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zpf-dB-WdI" secondAttribute="bottom" id="E7Z-E0-u7D"/>
-                            <constraint firstItem="Zpf-dB-WdI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cPc-iH-oPd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zpf-dB-WdI" secondAttribute="trailing" id="vbd-4s-Ker"/>
-                            <constraint firstItem="Zpf-dB-WdI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wrd-8b-Mpl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XdM-4g-ySq" secondAttribute="bottom" id="3gy-aW-G7g"/>
+                            <constraint firstItem="XdM-4g-ySq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IzH-gZ-gA0"/>
+                            <constraint firstItem="XdM-4g-ySq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="d08-cT-4ZS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XdM-4g-ySq" secondAttribute="trailing" id="sWX-KW-9hP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Confirmed cases" id="l0u-66-eJ8"/>
+                    <navigationItem key="navigationItem" title="Confirmed cases" id="l0u-66-eJ8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="pCk-wA-6Y9">
+                            <connections>
+                                <action selector="reloadAboutCoronavirus:" destination="BYZ-38-t0r" id="f7U-TU-Qgh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="map" destination="Zpf-dB-WdI" id="M6N-YN-GxF"/>
+                        <outlet property="map" destination="XdM-4g-ySq" id="rvc-BT-tWF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -100,7 +107,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YvD-Nx-YU9"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Confirmed cases" id="o1z-9r-q9p"/>
+                    <navigationItem key="navigationItem" title="Confirmed cases" id="o1z-9r-q9p">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="6XM-SV-i9X">
+                            <connections>
+                                <action selector="reloadAboutCoronavirus:" destination="1mm-eh-fSy" id="GgW-Ub-Ono"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="table" destination="mZR-dG-pyo" id="DgQ-sA-Wi2"/>
                     </connections>
@@ -260,7 +273,7 @@
         <scene sceneID="Vkx-le-44K">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Ig-KS-q36" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List" image="doc" catalog="system" id="Ohb-eH-Qek">
+                    <tabBarItem key="tabBarItem" title="List" image="spread-icon" id="Ohb-eH-Qek">
                         <color key="badgeColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -281,8 +294,8 @@
         <scene sceneID="Fdx-fV-GrD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CeH-5e-u7Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="timelapse" catalog="system" id="TMf-a5-jPs">
-                        <color key="badgeColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map-icon" id="TMf-a5-jPs">
+                        <color key="badgeColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uns-vy-AUH">
@@ -300,7 +313,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="doc" catalog="system" width="56" height="64"/>
-        <image name="timelapse" catalog="system" width="64" height="60"/>
+        <image name="map-icon" width="23" height="23"/>
+        <image name="spread-icon" width="23" height="23"/>
     </resources>
 </document>

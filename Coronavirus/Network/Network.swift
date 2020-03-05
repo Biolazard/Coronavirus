@@ -11,6 +11,7 @@ import CoreLocation
 
 class Network {
 
+    
     class func genericDownload(url: URL, completion: @escaping ([Covid]) -> Void, handleError: @escaping (Error) -> Void) {
         
         var regionsInfected = [Covid]()
@@ -39,8 +40,11 @@ class Network {
                     let infects = Covid(country: country, lastUpdate: lastUpdate, confirmed: confimerd, deaths: deaths, recovered: recovered, coordinates: coordinates)
                     regionsInfected.append(infects)
                 }
-                print("REQUEST URL \(url)")
-                completion(regionsInfected)
+                debugPrint("REQUEST URL \(url)")
+                DispatchQueue.main.sync {
+                    completion(regionsInfected)
+                }
+                
             }
         }.resume()
     }
