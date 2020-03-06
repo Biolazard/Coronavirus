@@ -7,10 +7,43 @@
 //
 
 import Foundation
+import UIKit
 import CoreLocation
+import Alamofire
 
 class Network {
 
+//    api key news 01a0796a70534344b2311a0baf2150c1
+    
+    class func getImage(url: URL, completionHandler: @escaping (UIImage) -> Void) {
+        AF.request(url).response { response in
+            guard response.error == nil else { return }
+            if let data = response.data {
+                if let image = UIImage(data: data) {
+                    completionHandler(image)
+                }
+            }
+        }
+    }
+    
+    class func getNews(completionHandler: @escaping (News) -> Void) {
+        let parameters: Parameters = [
+            "q": "Coronavirus",
+            "apiKey": "01a0796a70534344b2311a0baf2150c1",
+            "country": "\(Locale.current.regionCode?.lowercased() ?? "us")"
+        ]
+        
+        AF.request(URL(string: "https://newsapi.org/v2/top-headlines")!, parameters: parameters)
+        .response { response in
+            guard response.error == nil else { return }
+            if let data = response.data {
+                do {
+                    let news = try JSONDecoder().decode(News.self, from: data)
+                    completionHandler(news)
+                } catch { debugPrint("ERROR DOWNLOAD NEWS \(error)") }
+            }
+        }
+    }
     
     class func genericDownload(url: URL, completion: @escaping ([Covid]) -> Void, handleError: @escaping (Error) -> Void) {
         

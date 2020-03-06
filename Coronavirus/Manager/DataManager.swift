@@ -50,7 +50,6 @@ class DataManager {
             }, handleError: { _ in
                 self.coreData.getDataSpread { covid in
                     let covid = covid.isEmpty ? [Covid19]() : covid
-                    
                     self.coronavirus = covid
                 }
             })

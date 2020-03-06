@@ -8,10 +8,9 @@
 
 import UIKit
 
-class DailyReport: UITableViewCell {
+class DailyReportCell: UITableViewCell {
 
     @IBOutlet weak var country: UILabel!
     @IBOutlet weak var confirmed: UILabel!
     
-
 }

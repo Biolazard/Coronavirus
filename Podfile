@@ -6,5 +6,7 @@ target 'Coronavirus' do
   pod 'Firebase/Analytics'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  #pod 'Alamofire', '~> 5.0'
+  #pod 'Kingfisher', '~> 4.0'
 
 end

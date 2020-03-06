@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1CD8E4DCAEEDDD6D8BAD560F /* libPods-Coronavirus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20AB6969D398E876C3A2B240 /* libPods-Coronavirus.a */; };
+		A4185C2B24124FE400D612BB /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4185C2A24124FE400D612BB /* News.swift */; };
+		A4185C2D2412520800D612BB /* TEST.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4185C2C2412520800D612BB /* TEST.swift */; };
+		A4185C2F241256A200D612BB /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4185C2E241256A200D612BB /* NewsViewController.swift */; };
+		A4185C312412597C00D612BB /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4185C302412597C00D612BB /* ArticleCell.swift */; };
+		A4185C34241265D700D612BB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A4185C33241265D700D612BB /* Kingfisher */; };
 		A41D277C240674A400BC964F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D277B240674A400BC964F /* AppDelegate.swift */; };
 		A41D277E240674A400BC964F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D277D240674A400BC964F /* SceneDelegate.swift */; };
 		A41D2780240674A400BC964F /* WorldSpreadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D277F240674A400BC964F /* WorldSpreadController.swift */; };
@@ -17,8 +22,9 @@
 		A41D27902406837700BC964F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D278F2406837600BC964F /* Network.swift */; };
 		A41D279224068DB400BC964F /* Covid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D279124068DB400BC964F /* Covid.swift */; };
 		A443529124113A47008D25D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A443529024113A47008D25D0 /* GoogleService-Info.plist */; };
-		A443529424113E69008D25D0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A443529324113E69008D25D0 /* Alamofire */; };
-		A44CF2CC240D6A9B00A711F3 /* DailyReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44CF2CB240D6A9B00A711F3 /* DailyReport.swift */; };
+		A443B5B324126623001F280E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A443B5B224126623001F280E /* Alamofire */; };
+		A443B5B52412695A001F280E /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443B5B42412695A001F280E /* WebViewViewController.swift */; };
+		A44CF2CC240D6A9B00A711F3 /* DailyReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44CF2CB240D6A9B00A711F3 /* DailyReportCell.swift */; };
 		A4CA50D4240D621B00CEE23E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CA50D3240D621B00CEE23E /* DataManager.swift */; };
 		B66864322409290600799E1C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66864312409290600799E1C /* TabBarViewController.swift */; };
 		B668643424092CF400799E1C /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B668643324092CF400799E1C /* ListController.swift */; };
@@ -30,6 +36,10 @@
 /* Begin PBXFileReference section */
 		20AB6969D398E876C3A2B240 /* libPods-Coronavirus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Coronavirus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25EF74D3840D18FAFF6F2F4A /* Pods-Coronavirus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coronavirus.release.xcconfig"; path = "Target Support Files/Pods-Coronavirus/Pods-Coronavirus.release.xcconfig"; sourceTree = "<group>"; };
+		A4185C2A24124FE400D612BB /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		A4185C2C2412520800D612BB /* TEST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEST.swift; sourceTree = "<group>"; };
+		A4185C2E241256A200D612BB /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		A4185C302412597C00D612BB /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		A41D2778240674A400BC964F /* Coronavirus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coronavirus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41D277B240674A400BC964F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A41D277D240674A400BC964F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +51,8 @@
 		A41D278F2406837600BC964F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A41D279124068DB400BC964F /* Covid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid.swift; sourceTree = "<group>"; };
 		A443529024113A47008D25D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A44CF2CB240D6A9B00A711F3 /* DailyReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReport.swift; sourceTree = "<group>"; };
+		A443B5B42412695A001F280E /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
+		A44CF2CB240D6A9B00A711F3 /* DailyReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportCell.swift; sourceTree = "<group>"; };
 		A4CA50D3240D621B00CEE23E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A5E953CC754A0000153B93CE /* Pods-Coronavirus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coronavirus.debug.xcconfig"; path = "Target Support Files/Pods-Coronavirus/Pods-Coronavirus.debug.xcconfig"; sourceTree = "<group>"; };
 		B66864312409290600799E1C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -56,8 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A443B5B324126623001F280E /* Alamofire in Frameworks */,
+				A4185C34241265D700D612BB /* Kingfisher in Frameworks */,
 				1CD8E4DCAEEDDD6D8BAD560F /* libPods-Coronavirus.a in Frameworks */,
-				A443529424113E69008D25D0 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +106,7 @@
 				A44CF2CA240D6A1600A711F3 /* Cell */,
 				A443528F24113760008D25D0 /* Feature */,
 				A41D2781240674A400BC964F /* Main.storyboard */,
+				A4185C2C2412520800D612BB /* TEST.swift */,
 				A41D2784240674A900BC964F /* Assets.xcassets */,
 				A41D2786240674A900BC964F /* LaunchScreen.storyboard */,
 				A443529024113A47008D25D0 /* GoogleService-Info.plist */,
@@ -106,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				A41D279124068DB400BC964F /* Covid.swift */,
+				A4185C2A24124FE400D612BB /* News.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,6 +139,8 @@
 				B668643324092CF400799E1C /* ListController.swift */,
 				B6686435240931E100799E1C /* DetailViewController.swift */,
 				B66864312409290600799E1C /* TabBarViewController.swift */,
+				A4185C2E241256A200D612BB /* NewsViewController.swift */,
+				A443B5B42412695A001F280E /* WebViewViewController.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -132,7 +148,8 @@
 		A44CF2CA240D6A1600A711F3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				A44CF2CB240D6A9B00A711F3 /* DailyReport.swift */,
+				A44CF2CB240D6A9B00A711F3 /* DailyReportCell.swift */,
+				A4185C302412597C00D612BB /* ArticleCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -190,7 +207,8 @@
 			);
 			name = Coronavirus;
 			packageProductDependencies = (
-				A443529324113E69008D25D0 /* Alamofire */,
+				A4185C33241265D700D612BB /* Kingfisher */,
+				A443B5B224126623001F280E /* Alamofire */,
 			);
 			productName = Coronavirus;
 			productReference = A41D2778240674A400BC964F /* Coronavirus.app */;
@@ -221,7 +239,8 @@
 			);
 			mainGroup = A41D276F240674A400BC964F;
 			packageReferences = (
-				A443529224113E69008D25D0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A4185C32241265D700D612BB /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A443B5B124126623001F280E /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = A41D2779240674A400BC964F /* Products */;
 			projectDirPath = "";
@@ -293,9 +312,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4185C312412597C00D612BB /* ArticleCell.swift in Sources */,
 				A41D279224068DB400BC964F /* Covid.swift in Sources */,
 				B668643424092CF400799E1C /* ListController.swift in Sources */,
 				A41D2780240674A400BC964F /* WorldSpreadController.swift in Sources */,
+				A443B5B52412695A001F280E /* WebViewViewController.swift in Sources */,
+				A4185C2F241256A200D612BB /* NewsViewController.swift in Sources */,
 				A41D277C240674A400BC964F /* AppDelegate.swift in Sources */,
 				A41D27902406837700BC964F /* Network.swift in Sources */,
 				B668643C24093CFB00799E1C /* DataController.swift in Sources */,
@@ -304,7 +326,9 @@
 				A4CA50D4240D621B00CEE23E /* DataManager.swift in Sources */,
 				A41D277E240674A400BC964F /* SceneDelegate.swift in Sources */,
 				B6686436240931E100799E1C /* DetailViewController.swift in Sources */,
-				A44CF2CC240D6A9B00A711F3 /* DailyReport.swift in Sources */,
+				A4185C2D2412520800D612BB /* TEST.swift in Sources */,
+				A4185C2B24124FE400D612BB /* News.swift in Sources */,
+				A44CF2CC240D6A9B00A711F3 /* DailyReportCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +474,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.1;
 				DEVELOPMENT_TEAM = 983JKELL9A;
 				INFOPLIST_FILE = Coronavirus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -470,6 +495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.1;
 				DEVELOPMENT_TEAM = 983JKELL9A;
 				INFOPLIST_FILE = Coronavirus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -508,7 +534,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A443529224113E69008D25D0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		A4185C32241265D700D612BB /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.13.2;
+			};
+		};
+		A443B5B124126623001F280E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -519,9 +553,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A443529324113E69008D25D0 /* Alamofire */ = {
+		A4185C33241265D700D612BB /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A443529224113E69008D25D0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = A4185C32241265D700D612BB /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		A443B5B224126623001F280E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A443B5B124126623001F280E /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */

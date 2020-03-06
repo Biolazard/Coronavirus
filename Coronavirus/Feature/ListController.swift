@@ -34,7 +34,7 @@ class ListController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! DailyReport
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! DailyReportCell
         cell.accessoryType = .disclosureIndicator
         let c19 = dataManager.coronavirus[indexPath.row]
         cell.country.text = c19.country
