@@ -35,7 +35,11 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        news?.totalResults ?? 0
+//        news?.articles.count ?? 0
+        let a = news?.articles.filter({ article -> Bool in
+            article.urlToImage != nil && article.urlToImage?.contains("https") ?? false && article.url.contains("https")
+        })
+        return a?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,7 +49,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             let newsPerCell = news.articles[indexPath.row]
             cell.editor.text = newsPerCell.source.name
             cell.title.text = newsPerCell.title
-            cell.imageArticle.kf.setImage(with: URL(string: newsPerCell.urlToImage))
+            cell.imageArticle.kf.setImage(with: URL(string: newsPerCell.urlToImage ?? ""))
         }
         return cell
     }

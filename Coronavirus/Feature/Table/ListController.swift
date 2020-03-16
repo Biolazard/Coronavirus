@@ -12,20 +12,22 @@ class ListController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     
     @IBOutlet weak var table: UITableView!
-    
     var dataManager: DataManager!
-    
-    func dependencyInjection(dataManager: DataManager) {
-        self.dataManager = dataManager
-    }
+    var model: ListControllerVM!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        model.delegate = self
+        initRefreshController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         dataManager.delegate = self
     }
     
     func showData() {
-        self.navigationItem.title = "Confirmed cases"
+        table.refreshControl?.endRefreshing()
         table.reloadData()
     }
     
@@ -50,11 +52,16 @@ class ListController: UIViewController, UITableViewDelegate, UITableViewDataSour
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func reloadAboutCoronavirus(_ sender: UIBarButtonItem) {
-        self.navigationItem.title = "Downloading..."
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+    @objc func handleRefresh() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.dataManager.refreshData()
         }
+    }
+    
+    private func initRefreshController() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:  #selector(handleRefresh), for: .valueChanged)
+        table.refreshControl = refreshControl
     }
     
 }

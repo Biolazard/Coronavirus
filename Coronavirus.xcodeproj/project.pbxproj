@@ -31,6 +31,9 @@
 		B6686436240931E100799E1C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6686435240931E100799E1C /* DetailViewController.swift */; };
 		B668643A24093C5900799E1C /* Coronavirus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B668643824093C5900799E1C /* Coronavirus.xcdatamodeld */; };
 		B668643C24093CFB00799E1C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B668643B24093CFB00799E1C /* DataController.swift */; };
+		B6C185E4241FD93B000CD7FF /* WorldSpreadVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C185E3241FD93B000CD7FF /* WorldSpreadVM.swift */; };
+		B6C98671241FEDF100C3809E /* ListControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C98670241FEDF100C3809E /* ListControllerVM.swift */; };
+		B6C98673241FEE5700C3809E /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C98672241FEE5700C3809E /* Activity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		B6686435240931E100799E1C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B668643924093C5900799E1C /* Coronavirus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Coronavirus.xcdatamodel; sourceTree = "<group>"; };
 		B668643B24093CFB00799E1C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		B6C185E3241FD93B000CD7FF /* WorldSpreadVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldSpreadVM.swift; sourceTree = "<group>"; };
+		B6C98670241FEDF100C3809E /* ListControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListControllerVM.swift; sourceTree = "<group>"; };
+		B6C98672241FEE5700C3809E /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 				A443528F24113760008D25D0 /* Feature */,
 				A41D2781240674A400BC964F /* Main.storyboard */,
 				A4185C2C2412520800D612BB /* TEST.swift */,
+				B6C98672241FEE5700C3809E /* Activity.swift */,
 				A41D2784240674A900BC964F /* Assets.xcassets */,
 				A41D2786240674A900BC964F /* LaunchScreen.storyboard */,
 				A443529024113A47008D25D0 /* GoogleService-Info.plist */,
@@ -135,9 +142,8 @@
 		A443528F24113760008D25D0 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				A41D277F240674A400BC964F /* WorldSpreadController.swift */,
-				B668643324092CF400799E1C /* ListController.swift */,
-				B6686435240931E100799E1C /* DetailViewController.swift */,
+				B6C185E2241FD90E000CD7FF /* World */,
+				B6C9866F241FEB2100C3809E /* Table */,
 				B66864312409290600799E1C /* TabBarViewController.swift */,
 				A4185C2E241256A200D612BB /* NewsViewController.swift */,
 				A443B5B42412695A001F280E /* WebViewViewController.swift */,
@@ -169,6 +175,25 @@
 				B668643B24093CFB00799E1C /* DataController.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B6C185E2241FD90E000CD7FF /* World */ = {
+			isa = PBXGroup;
+			children = (
+				A41D277F240674A400BC964F /* WorldSpreadController.swift */,
+				B6C185E3241FD93B000CD7FF /* WorldSpreadVM.swift */,
+			);
+			path = World;
+			sourceTree = "<group>";
+		};
+		B6C9866F241FEB2100C3809E /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				B668643324092CF400799E1C /* ListController.swift */,
+				B6C98670241FEDF100C3809E /* ListControllerVM.swift */,
+				B6686435240931E100799E1C /* DetailViewController.swift */,
+			);
+			path = Table;
 			sourceTree = "<group>";
 		};
 		D0D04656E354521C5F13AA8A /* Pods */ = {
@@ -316,16 +341,19 @@
 				A41D279224068DB400BC964F /* Covid.swift in Sources */,
 				B668643424092CF400799E1C /* ListController.swift in Sources */,
 				A41D2780240674A400BC964F /* WorldSpreadController.swift in Sources */,
+				B6C98671241FEDF100C3809E /* ListControllerVM.swift in Sources */,
 				A443B5B52412695A001F280E /* WebViewViewController.swift in Sources */,
 				A4185C2F241256A200D612BB /* NewsViewController.swift in Sources */,
 				A41D277C240674A400BC964F /* AppDelegate.swift in Sources */,
 				A41D27902406837700BC964F /* Network.swift in Sources */,
 				B668643C24093CFB00799E1C /* DataController.swift in Sources */,
+				B6C98673241FEE5700C3809E /* Activity.swift in Sources */,
 				B66864322409290600799E1C /* TabBarViewController.swift in Sources */,
 				B668643A24093C5900799E1C /* Coronavirus.xcdatamodeld in Sources */,
 				A4CA50D4240D621B00CEE23E /* DataManager.swift in Sources */,
 				A41D277E240674A400BC964F /* SceneDelegate.swift in Sources */,
 				B6686436240931E100799E1C /* DetailViewController.swift in Sources */,
+				B6C185E4241FD93B000CD7FF /* WorldSpreadVM.swift in Sources */,
 				A4185C2D2412520800D612BB /* TEST.swift in Sources */,
 				A4185C2B24124FE400D612BB /* News.swift in Sources */,
 				A44CF2CC240D6A9B00A711F3 /* DailyReportCell.swift in Sources */,

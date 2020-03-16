@@ -16,10 +16,12 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         self.children.forEach({ (vc) in
             if let nav = vc as? UINavigationController, let map = nav.topViewController as? WorldSpreadController {
-                map.dependencyInjection(dataManager: dataManager)
+                map.dataManager = dataManager
+                map.model = WorldSpreadVM()
             }
             if let nav = vc as? UINavigationController, let table = nav.topViewController as? ListController {
-                table.dependencyInjection(dataManager: dataManager)
+                table.dataManager = dataManager
+                table.model = ListControllerVM()
             }
         })
     }

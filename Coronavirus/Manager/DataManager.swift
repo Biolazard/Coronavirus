@@ -18,6 +18,7 @@ class DataManager {
     
     let coreData = DataController()
     var delegate: CoronavirusDelegate?
+    var delegateee: CoronavirusDelegate!
     var coronavirus = [Covid19]() {
         didSet {
             self.delegate?.showData()

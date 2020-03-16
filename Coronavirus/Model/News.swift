@@ -19,7 +19,7 @@ struct Article: Codable {
     var title: String
     var description: String
     var url: String
-    var urlToImage: String
+    var urlToImage: String?
     
 }
 

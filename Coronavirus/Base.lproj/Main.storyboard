@@ -107,13 +107,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YvD-Nx-YU9"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Confirmed cases" id="o1z-9r-q9p">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="6XM-SV-i9X">
-                            <connections>
-                                <action selector="reloadAboutCoronavirus:" destination="1mm-eh-fSy" id="GgW-Ub-Ono"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Confirmed cases" id="o1z-9r-q9p"/>
                     <connections>
                         <outlet property="table" destination="mZR-dG-pyo" id="DgQ-sA-Wi2"/>
                     </connections>
