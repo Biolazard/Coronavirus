@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol CoronavirusDelegate {
-    func showData()
+    func didUpdateData()
 }
 
 class DataManager {
@@ -21,7 +21,7 @@ class DataManager {
     var delegateee: CoronavirusDelegate!
     var coronavirus = [Covid19]() {
         didSet {
-            self.delegate?.showData()
+            self.delegate?.didUpdateData()
         }
     }
     

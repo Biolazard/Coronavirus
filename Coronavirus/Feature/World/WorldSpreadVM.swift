@@ -13,11 +13,7 @@ class WorldSpreadVM {
     
     var customMap: String { return getCustomMap() }
     var delegate: WorldSpreadController!
-    private var alert: UIAlertController!
-    
-    init() {
-        self.alert = Activity(title: nil, message: nil, preferredStyle: .alert)
-    }
+    private var alert = Activity(title: nil, message: nil, preferredStyle: .alert)
     
     //TODO: mettere un throw
     func changeMapStyle() {
@@ -40,22 +36,12 @@ class WorldSpreadVM {
         }
     }
     
-    
     func showLoading() {
         delegate.present(alert, animated: true, completion: nil)
     }
     
     func hideLoading() {
         delegate.dismiss(animated: true, completion: nil)
-    }
-    
-    private func initLoadingController() {
-        alert = UIAlertController(title: nil, message: "loading...", preferredStyle: .alert)
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.medium
-        loadingIndicator.startAnimating();
-        alert.view.addSubview(loadingIndicator)
     }
 }
 

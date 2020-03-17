@@ -13,11 +13,9 @@ class ListController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var table: UITableView!
     var dataManager: DataManager!
-    var model: ListControllerVM!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.delegate = self
         initRefreshController()
     }
     
@@ -26,7 +24,7 @@ class ListController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dataManager.delegate = self
     }
     
-    func showData() {
+    func didUpdateData() {
         table.refreshControl?.endRefreshing()
         table.reloadData()
     }
@@ -48,7 +46,7 @@ class ListController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.deselectRow(at: indexPath, animated: true)
         let c19 = dataManager.coronavirus[indexPath.row]
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "details") as! DetailViewController
-        vc.injectDependices(data: c19)
+        vc.covid = c19
         navigationController?.pushViewController(vc, animated: true)
     }
     

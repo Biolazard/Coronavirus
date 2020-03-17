@@ -9,20 +9,20 @@
 import Foundation
 
 struct News: Codable {
-    var status: String
-    var totalResults: Int
+    var status: String?
+    var totalResults: Int?
     var articles: [Article]
 }
 
 struct Article: Codable {
     var source: Source
-    var title: String
-    var description: String
-    var url: String
+    var title: String?
+    var description: String?
+    var url: String?
     var urlToImage: String?
     
 }
 
 struct Source: Codable {
-    var name: String
+    var name: String?
 }

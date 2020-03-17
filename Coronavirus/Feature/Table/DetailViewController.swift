@@ -20,12 +20,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var numberConfirmed: UILabel!
     @IBOutlet weak var numberRecovered: UILabel!
     @IBOutlet weak var numberDeath: UILabel!
-    
-    func injectDependices(data: Covid19) {
-        self.covid = data
-        
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()

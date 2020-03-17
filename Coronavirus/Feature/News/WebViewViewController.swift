@@ -15,16 +15,11 @@ class WebViewViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var web: WKWebView!
     var webView = WKWebView()
     var url: URL!
-    
-    func dependencyInjection(url: URL) {
-        self.url = url
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         web.navigationDelegate = self
         web.load(URLRequest(url: url))
-        
     }
     
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {

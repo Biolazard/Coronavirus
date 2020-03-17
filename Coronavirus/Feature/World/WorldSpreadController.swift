@@ -34,7 +34,7 @@ class WorldSpreadController: UIViewController, CoronavirusDelegate {
         self.dataManager.refreshData()
     }
     
-    func showData() {
+    func didUpdateData() {
         model.updateAnnotation(covid: dataManager.coronavirus)
     }
 }
