@@ -103,6 +103,7 @@
 			children = (
 				A41D277B240674A400BC964F /* AppDelegate.swift */,
 				A41D277D240674A400BC964F /* SceneDelegate.swift */,
+				B625AC9A242145A8001BE0D4 /* Custom */,
 				A4CA50D5240D622100CEE23E /* Manager */,
 				B668643724093BB800799E1C /* CoreData */,
 				A41D27942406C7AD00BC964F /* Network */,
@@ -139,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				B66864312409290600799E1C /* TabBarViewController.swift */,
-				B6C98672241FEE5700C3809E /* Activity.swift */,
 				B6C185E2241FD90E000CD7FF /* World */,
 				B6C9866F241FEB2100C3809E /* Table */,
 				B6AE51D92421385300E14012 /* News */,
@@ -162,6 +162,14 @@
 				A4CA50D3240D621B00CEE23E /* DataManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		B625AC9A242145A8001BE0D4 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				B6C98672241FEE5700C3809E /* Activity.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		B668643724093BB800799E1C /* CoreData */ = {
