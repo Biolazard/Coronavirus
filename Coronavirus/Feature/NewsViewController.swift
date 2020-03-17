@@ -37,7 +37,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        news?.articles.count ?? 0
         let a = news?.articles.filter({ article -> Bool in
-            article.urlToImage != nil && article.urlToImage?.contains("https") ?? false && article.url.contains("https")
+            article.urlToImage != nil
         })
         return a?.count ?? 0
     }
