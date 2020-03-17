@@ -15,51 +15,34 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableNews: UITableView!
     var dataManager: DataManager!
-    var news: News? {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableNews.reloadData()
-            }
-        }
-    }
-    
-    func dependencyInjection(dataManager: DataManager) {
-        self.dataManager = dataManager
-    }
+    var model: NewsVM!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Network.getNews(completionHandler: { news in
-            self.news = news
-        })
+        model.delegate = self
+        initRefreshController() 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        news?.articles.count ?? 0
-        let a = news?.articles.filter({ article -> Bool in
-            article.urlToImage != nil
-        })
-        return a?.count ?? 0
+        model.numberOfRowsInSection()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellNews", for: indexPath) as! ArticleCell
         cell.imageArticle.layer.cornerRadius = 8
-        if let news = news {
-            let newsPerCell = news.articles[indexPath.row]
-            cell.editor.text = newsPerCell.source.name
-            cell.title.text = newsPerCell.title
-            cell.imageArticle.kf.setImage(with: URL(string: newsPerCell.urlToImage ?? ""))
-        }
+        let newsPerCell = model.getArticles()[indexPath.row]
+        cell.editor.text = newsPerCell.source.name
+        cell.title.text = newsPerCell.title
+        cell.imageArticle.kf.setImage(with: URL(string: newsPerCell.urlToImage ?? ""))
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let news = news {
-            let newsPerCell = news.articles[indexPath.row]
-            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "web") as! WebViewViewController
-            vc.dependencyInjection(url: URL(string: newsPerCell.url)!)
+        let newsPerCell = model.getArticles()[indexPath.row]
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "web") as! WebViewViewController
+        if let strinUrl = newsPerCell.url, let url = URL(string: strinUrl) {
+            vc.url = url
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -72,4 +55,16 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         }))
         present(alert, animated: true, completion: nil)
     }
+    
+    @objc private func updateNews() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.model.updateNews()
+        }
+        
+    }
+    private func initRefreshController() {
+           let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:  #selector(updateNews), for: .valueChanged)
+           tableNews.refreshControl = refreshControl
+       }
 }

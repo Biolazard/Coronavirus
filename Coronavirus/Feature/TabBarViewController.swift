@@ -21,7 +21,9 @@ class TabBarViewController: UITabBarController {
             }
             if let nav = vc as? UINavigationController, let table = nav.topViewController as? ListController {
                 table.dataManager = dataManager
-                table.model = ListControllerVM()
+            }
+            if let nav = vc as? UINavigationController, let news = nav.topViewController as? NewsViewController {
+                news.model = NewsVM()
             }
         })
     }
