@@ -18,7 +18,7 @@ class ListController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         initRefreshController()
     }
-    s
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dataManager.delegate = self
