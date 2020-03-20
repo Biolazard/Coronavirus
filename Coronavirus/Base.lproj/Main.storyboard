@@ -20,7 +20,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysH-9D-Xhc">
-                                <rect key="frame" x="352" y="751" width="46" height="46"/>
+                                <rect key="frame" x="336" y="735" width="46" height="46"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="FtH-8w-3tK"/>
@@ -41,9 +41,9 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XdM-4g-ySq" secondAttribute="bottom" id="3gy-aW-G7g"/>
                             <constraint firstItem="XdM-4g-ySq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IzH-gZ-gA0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ysH-9D-Xhc" secondAttribute="trailing" constant="16" id="UbU-59-aji"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ysH-9D-Xhc" secondAttribute="trailing" constant="32" id="UbU-59-aji"/>
                             <constraint firstItem="XdM-4g-ySq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="d08-cT-4ZS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ysH-9D-Xhc" secondAttribute="bottom" constant="16" id="fvx-FK-0ch"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ysH-9D-Xhc" secondAttribute="bottom" constant="32" id="fvx-FK-0ch"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XdM-4g-ySq" secondAttribute="trailing" id="sWX-KW-9hP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
