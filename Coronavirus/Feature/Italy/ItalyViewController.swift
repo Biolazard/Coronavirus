@@ -34,7 +34,7 @@ class ItalyViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.accessoryType = .disclosureIndicator
         let region = model.italy[indexPath.row]
         cell.country.text = region.regione
-        cell.confirmed.text = "Casi totali " + region.casiTotali
+        cell.confirmed.text = "Casi totali \(region.casiTotali)"
         return cell
     }
     

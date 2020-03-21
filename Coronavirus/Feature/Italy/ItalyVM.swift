@@ -20,6 +20,9 @@ class ItalyVM {
     
     private var notFilterItaly = [Italy]() {
         didSet {
+            notFilterItaly.sort { (i1, i2) in
+                i1.casiTotali > i2.casiTotali
+            }
             italy = notFilterItaly
         }
     }
@@ -42,7 +45,7 @@ class ItalyVM {
     }
     
     func update() {
-        Network.getRegioneItaly(url: URL(string: "https://openpuglia.org/api/?q=getsummarycovid-19")!, completion: { italy in
+        Network.getRegioneItaly(url: URL(string: "https://openpuglia.org/api/?q=getdatapccovid-19")!, completion: { italy in
             self.notFilterItaly = italy
         }) { error in }
         self.endRefreshing()

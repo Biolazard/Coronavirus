@@ -447,8 +447,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JD-M1-p3W">
                                 <rect key="frame" x="16" y="104" width="382" height="758"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numero infetti" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLR-gY-Dem">
-                                        <rect key="frame" x="16" y="16" width="114.5" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Totale ospedalizzati" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLR-gY-Dem">
+                                        <rect key="frame" x="16" y="16" width="158.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -688,9 +688,9 @@
                         <outlet property="deceduti" destination="NLx-bA-zHg" id="eWY-LL-djg"/>
                         <outlet property="guariti" destination="3iq-j3-OY3" id="9TC-x4-Iz6"/>
                         <outlet property="isolamentoDomiciliare" destination="gva-5x-nyY" id="vrk-mH-e5R"/>
-                        <outlet property="numeroInfetti" destination="DjN-Gm-Pwk" id="ag5-Tg-wMr"/>
                         <outlet property="tamponi" destination="g6M-Dw-Fc5" id="Zuc-ng-aMg"/>
                         <outlet property="terapiaIntensiva" destination="0Wt-QV-yng" id="ok5-0O-eKj"/>
+                        <outlet property="totaleOspedalizzati" destination="DjN-Gm-Pwk" id="ag5-Tg-wMr"/>
                         <outlet property="totalePositivi" destination="hiD-1q-7jw" id="Wfc-6W-NmN"/>
                     </connections>
                 </viewController>

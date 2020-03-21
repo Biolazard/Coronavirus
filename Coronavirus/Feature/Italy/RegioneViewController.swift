@@ -11,7 +11,7 @@ import UIKit
 class RegioneViewController: UIViewController {
     
     
-    @IBOutlet weak var numeroInfetti: UILabel!
+    @IBOutlet weak var totaleOspedalizzati: UILabel!
     @IBOutlet weak var terapiaIntensiva: UILabel!
     @IBOutlet weak var isolamentoDomiciliare: UILabel!
     @IBOutlet weak var totalePositivi: UILabel!
@@ -30,14 +30,14 @@ class RegioneViewController: UIViewController {
        
 
         
-        numeroInfetti.text = data.numeroInfetti
-        terapiaIntensiva.text = data.terapiaIntensiva
-        isolamentoDomiciliare.text = data.isolamentoDomiciliare
-        totalePositivi.text = data.totalePositivi
-        guariti.text = data.guariti
-        deceduti.text = data.deceduti
-        casiTotali.text = data.casiTotali
-        tamponi.text = data.tamponi
+        totaleOspedalizzati.text = "\(data.totaleOspedalizzati)"
+        terapiaIntensiva.text = "\(data.terapiaIntensiva)"
+        isolamentoDomiciliare.text = "\(data.isolamentoDomiciliare)"
+        totalePositivi.text = "\(data.totalePositivi)"
+        guariti.text = "\(data.guariti)"
+        deceduti.text = "\(data.deceduti)"
+        casiTotali.text = "\(data.casiTotali)"
+        tamponi.text = "\(data.tamponi)"
     }
 
 }
