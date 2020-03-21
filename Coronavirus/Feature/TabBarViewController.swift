@@ -25,6 +25,9 @@ class TabBarViewController: UITabBarController {
             if let nav = vc as? UINavigationController, let news = nav.topViewController as? NewsViewController {
                 news.model = NewsVM()
             }
+            if let nav = vc as? UINavigationController, let news = nav.topViewController as? ItalyViewController {
+                news.model = ItalyVM()
+            }
         })
     }
     

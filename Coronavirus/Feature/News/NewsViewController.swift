@@ -63,8 +63,8 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     private func initRefreshController() {
-           let refreshControl = UIRefreshControl()
+        let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:  #selector(updateNews), for: .valueChanged)
-           tableNews.refreshControl = refreshControl
-       }
+        tableNews.refreshControl = refreshControl
+    }
 }

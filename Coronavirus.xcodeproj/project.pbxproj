@@ -30,6 +30,10 @@
 		B6686436240931E100799E1C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6686435240931E100799E1C /* DetailViewController.swift */; };
 		B668643A24093C5900799E1C /* Coronavirus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B668643824093C5900799E1C /* Coronavirus.xcdatamodeld */; };
 		B668643C24093CFB00799E1C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B668643B24093CFB00799E1C /* DataController.swift */; };
+		B67446B724268B8300EA2271 /* Italy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67446B624268B8300EA2271 /* Italy.swift */; };
+		B67446BA24268FE800EA2271 /* ItalyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67446B924268FE800EA2271 /* ItalyViewController.swift */; };
+		B67446BC24268FF400EA2271 /* ItalyVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67446BB24268FF400EA2271 /* ItalyVM.swift */; };
+		B67446BE242697C500EA2271 /* RegioneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67446BD242697C500EA2271 /* RegioneViewController.swift */; };
 		B6AE51DB2421388700E14012 /* NewsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AE51DA2421388700E14012 /* NewsVM.swift */; };
 		B6C185E4241FD93B000CD7FF /* WorldSpreadVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C185E3241FD93B000CD7FF /* WorldSpreadVM.swift */; };
 		B6C98673241FEE5700C3809E /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C98672241FEE5700C3809E /* Activity.swift */; };
@@ -61,6 +65,10 @@
 		B6686435240931E100799E1C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B668643924093C5900799E1C /* Coronavirus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Coronavirus.xcdatamodel; sourceTree = "<group>"; };
 		B668643B24093CFB00799E1C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		B67446B624268B8300EA2271 /* Italy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Italy.swift; sourceTree = "<group>"; };
+		B67446B924268FE800EA2271 /* ItalyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItalyViewController.swift; sourceTree = "<group>"; };
+		B67446BB24268FF400EA2271 /* ItalyVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItalyVM.swift; sourceTree = "<group>"; };
+		B67446BD242697C500EA2271 /* RegioneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegioneViewController.swift; sourceTree = "<group>"; };
 		B6AE51DA2421388700E14012 /* NewsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVM.swift; sourceTree = "<group>"; };
 		B6C185E3241FD93B000CD7FF /* WorldSpreadVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldSpreadVM.swift; sourceTree = "<group>"; };
 		B6C98672241FEE5700C3809E /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -124,6 +132,7 @@
 			children = (
 				A41D279124068DB400BC964F /* Covid.swift */,
 				A4185C2A24124FE400D612BB /* News.swift */,
+				B67446B624268B8300EA2271 /* Italy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,6 +152,7 @@
 				B6C185E2241FD90E000CD7FF /* World */,
 				B6C9866F241FEB2100C3809E /* Table */,
 				B6AE51D92421385300E14012 /* News */,
+				B67446B824268FC500EA2271 /* Italy */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -179,6 +189,16 @@
 				B668643B24093CFB00799E1C /* DataController.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B67446B824268FC500EA2271 /* Italy */ = {
+			isa = PBXGroup;
+			children = (
+				B67446B924268FE800EA2271 /* ItalyViewController.swift */,
+				B67446BB24268FF400EA2271 /* ItalyVM.swift */,
+				B67446BD242697C500EA2271 /* RegioneViewController.swift */,
+			);
+			path = Italy;
 			sourceTree = "<group>";
 		};
 		B6AE51D92421385300E14012 /* News */ = {
@@ -351,9 +371,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4185C312412597C00D612BB /* ArticleCell.swift in Sources */,
+				B67446BA24268FE800EA2271 /* ItalyViewController.swift in Sources */,
 				B6AE51DB2421388700E14012 /* NewsVM.swift in Sources */,
 				A41D279224068DB400BC964F /* Covid.swift in Sources */,
 				B668643424092CF400799E1C /* ListController.swift in Sources */,
+				B67446BE242697C500EA2271 /* RegioneViewController.swift in Sources */,
 				A41D2780240674A400BC964F /* WorldSpreadController.swift in Sources */,
 				A443B5B52412695A001F280E /* WebViewViewController.swift in Sources */,
 				A4185C2F241256A200D612BB /* NewsViewController.swift in Sources */,
@@ -361,8 +383,10 @@
 				A41D27902406837700BC964F /* Network.swift in Sources */,
 				B668643C24093CFB00799E1C /* DataController.swift in Sources */,
 				B6C98673241FEE5700C3809E /* Activity.swift in Sources */,
+				B67446BC24268FF400EA2271 /* ItalyVM.swift in Sources */,
 				B66864322409290600799E1C /* TabBarViewController.swift in Sources */,
 				B668643A24093C5900799E1C /* Coronavirus.xcdatamodeld in Sources */,
+				B67446B724268B8300EA2271 /* Italy.swift in Sources */,
 				A4CA50D4240D621B00CEE23E /* DataManager.swift in Sources */,
 				A41D277E240674A400BC964F /* SceneDelegate.swift in Sources */,
 				B6686436240931E100799E1C /* DetailViewController.swift in Sources */,

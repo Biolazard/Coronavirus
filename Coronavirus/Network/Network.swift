@@ -82,4 +82,20 @@ class Network {
         }.resume()
     }
     
+    class func getRegioneItaly(url: URL, completion: @escaping ([Italy]) -> Void, errorHandler: @escaping (Error) -> Void) {
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                errorHandler(error)
+            }
+            if let data = data {
+                do {
+                    let jsonDeserialized = try JSONDecoder().decode([Italy].self, from: data)
+                    completion(jsonDeserialized)
+                } catch {
+                    errorHandler(error)
+                }
+            }
+        }.resume()
+    }
+    
 }

@@ -61,7 +61,7 @@ class NewsVM {
     }
     
     private func endRefreshing() {
-        if self.delegate.tableNews.refreshControl?.isRefreshing ?? true {
+        if let refresh = self.delegate.tableNews.refreshControl, refresh.isRefreshing {
             self.delegate.tableNews.refreshControl?.endRefreshing()
         }
         self.delegate.tableNews.reloadData()
