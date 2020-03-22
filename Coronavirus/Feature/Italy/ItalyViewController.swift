@@ -63,7 +63,9 @@ class ItalyViewController: UIViewController, UITableViewDataSource, UITableViewD
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Cerca regione"
-        table.tableHeaderView = searchController.searchBar
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
     }
     
     func updateSearchResults(for searchController: UISearchController) {
