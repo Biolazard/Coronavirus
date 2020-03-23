@@ -2,4 +2,4 @@
 
 ## Data repository: https://github.com/CSSEGISandData/COVID-19
 
-## Italy API: https://openpuglia.org/api/?q=getdatapccovid-19
+## Data Italy repository: https://github.com/ondata/covid19italia
