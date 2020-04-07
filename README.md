@@ -1,5 +1,5 @@
 # Coronavirus
 
-## Data repository: https://github.com/CSSEGISandData/COVID-19
+## Data repository: https://rapidapi.com/Gramzivi/api/covid-19-data/endpoints
 
 ## Data Italy repository: https://github.com/ondata/covid19italia
