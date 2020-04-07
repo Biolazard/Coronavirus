@@ -7,95 +7,27 @@
 //
 
 import Foundation
-import UIKit
-import CoreLocation
 import Alamofire
 
 class Network {
-
-//    api key news 01a0796a70534344b2311a0baf2150c1
-    
-    class func getImage(url: URL, completionHandler: @escaping (UIImage) -> Void) {
-        AF.request(url).response { response in
-            guard response.error == nil else { return }
-            if let data = response.data {
-                if let image = UIImage(data: data) {
-                    completionHandler(image)
-                }
-            }
-        }
-    }
-    
-    class func getNews(completionHandler: @escaping (News) -> Void) {
-        let parameters: Parameters = [
-            "q": "Coronavirus",
-            "apiKey": "01a0796a70534344b2311a0baf2150c1",
-            "country": "\(Locale.current.regionCode?.lowercased() ?? "us")"
+    static func getAllCountries(completionHandler: @escaping ([Coronavirus]) -> Void, errorHandler: @escaping () -> Void) {
+        let url = URL(string: "https://covid-19-data.p.rapidapi.com/country/all?format=undefined")!
+        
+        let headers: HTTPHeaders = [
+          "x-rapidapi-key": "8b666de372msha1a0fdfe6f65fc1p1eee56jsn0f1382dabb50"
         ]
         
-        AF.request(URL(string: "https://newsapi.org/v2/top-headlines")!, parameters: parameters)
-        .response { response in
-            guard response.error == nil else { return }
-            if let data = response.data {
+        AF.request(url, headers: headers).responseJSON { (data) in
+            if let data = data.data {
                 do {
-                    let news = try JSONDecoder().decode(News.self, from: data)
-                    completionHandler(news)
-                } catch { debugPrint("ERROR DOWNLOAD NEWS \(error)") }
+                    let coronavirus = try JSONDecoder().decode([Coronavirus].self, from: data)
+                    completionHandler(coronavirus)
+                } catch {
+                    errorHandler()
+                }
             }
         }
-    }
-    
-    class func genericDownload(url: URL, completion: @escaping ([Covid]) -> Void, handleError: @escaping (Error) -> Void) {
         
-        var regionsInfected = [Covid]()
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                handleError(error)
-            }
-            if let data = data, var responseString = String(data: data, encoding: .utf8) {
-                responseString = responseString.replacingOccurrences(of: "\"", with: "")
-                let lines = responseString.split(separator: "\n")
-                for line in lines.dropFirst() {
-                    var line = line
-                    if line.first == "," {
-                        line.removeFirst()
-                    }
-                    let row = line.split(separator: ",")
-                    
-                    let country = String(row.first ?? "")
-                    let lastUpdate = String(row[row.count - 6])
-                    let confimerd = String(row[row.count - 5])
-                    let deaths = String(row[row.count - 4])
-                    let recovered = String(row[row.count - 3])
-                    let coordinates = CLLocationCoordinate2D(latitude: Double(row[row.count - 2])!, longitude: Double(row[row.count - 1])!)
-                    
-                    let infects = Covid(country: country, lastUpdate: lastUpdate, confirmed: confimerd, deaths: deaths, recovered: recovered, coordinates: coordinates)
-                    regionsInfected.append(infects)
-                }
-                debugPrint("REQUEST URL \(url)")
-                DispatchQueue.main.sync {
-                    completion(regionsInfected)
-                }
-                
-            }
-        }.resume()
     }
-    
-    class func getRegioneItaly(url: URL, completion: @escaping ([Italy]) -> Void, errorHandler: @escaping (Error) -> Void) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                errorHandler(error)
-            }
-            if let data = data {
-                do {
-                    let jsonDeserialized = try JSONDecoder().decode([Italy].self, from: data)
-                    completion(jsonDeserialized)
-                } catch {
-                    errorHandler(error)
-                }
-            }
-        }.resume()
-    }
-    
+      
 }

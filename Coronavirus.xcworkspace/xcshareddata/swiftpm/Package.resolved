@@ -11,12 +11,12 @@
         }
       },
       {
-        "package": "Kingfisher",
-        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
+        "package": "AlamofireImage",
+        "repositoryURL": "https://github.com/Alamofire/AlamofireImage.git",
         "state": {
           "branch": null,
-          "revision": "56075f629bc3915e1bfa876d175df67e1a7cbe3c",
-          "version": "5.13.2"
+          "revision": "5384f5509cb37075c468002fb49ffe0faa82e2ad",
+          "version": "4.0.3"
         }
       }
     ]
