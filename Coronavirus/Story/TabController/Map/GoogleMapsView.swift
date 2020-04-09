@@ -9,9 +9,9 @@
 import Foundation
 import GoogleMaps
 
-class GoogleMapsView: GMSMapView, GoogleMapsProtocol {
+class GoogleMapsView: GMSMapView {
     
-    func setAnnotation(_ infoCoronavirus: [Coronavirus]) {
+    func setMarker(_ infoCoronavirus: [Coronavirus]) {
         infoCoronavirus.forEach { c in
             if c.confirmed > 0 {
                 let marker = GMSMarker()

@@ -8,22 +8,19 @@
 
 import UIKit
 
-enum StoryboardList: String {
-    case main = "Main"
-    case table = "Table"
-    case tab = "Tab"
-    case map = "Map"
-}
-
-enum StoryboardIdentifier: String {
-    case MapViewController, CovidTableViewController
-}
-
-class MainTabViewController: UITabBarController {
+class MainTabViewController: UITabBarController{
+    
+    private var model: BaseActionInput?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedIndex = 0
+        configureModel()
         setViewControllers(configureViewControllers(), animated: true)
+    }
+    
+    private func configureModel() {
+        model = TabBarModel()
+        model?.tabController = self
     }
 }
 
@@ -44,13 +41,14 @@ extension MainTabViewController: TabConfigurationProtocol {
         switch viewController {
             case is MapViewController:
                 let v = viewController as! MapViewController
-                v.mapModel = MapViewModel()
-                (v.mapModel as? MapViewModel)?.controller = v
+                v.model = MapModel()
+                v.model?.tabController = self
+                
             
             case is CovidTableViewController:
-//                let v = viewController as! CovidTableViewController
-                
+
                 break
+            
             default:
                 break
         }
@@ -63,4 +61,13 @@ extension MainTabViewController: TabConfigurationProtocol {
         
         return viewController
     }
+}
+
+extension MainTabViewController: BaseActionOutput {
+    func didUpdate(covid19: [Coronavirus]) {
+        if let n = selectedViewController as? UINavigationController, let v = n.viewControllers.first as? CovidProtocol{
+            v.coronavirus = covid19
+        }
+    }
+    
 }

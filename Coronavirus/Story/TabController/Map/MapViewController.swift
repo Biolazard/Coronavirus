@@ -9,20 +9,22 @@
 import UIKit
 import GoogleMaps
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, CovidProtocol {
+    
     @IBOutlet weak var googleMapsView: GoogleMapsView?
     
-    var mapModel: MapViewInput?
+    var coronavirus = [Coronavirus]() {
+        didSet {
+            googleMapsView?.setMarker(coronavirus)
+        }
+    }
+    
+    var model: BaseActionInput?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapModel?.interfaceDidLoad()
+        model?.updateData()
     }
+    
 }
 
-extension MapViewController: MapViewOutput {
-    func didUpdateCoronavirus(infoCoronavirus: [Coronavirus]) {
-        googleMapsView?.setAnnotation(infoCoronavirus)
-    }
-
-}

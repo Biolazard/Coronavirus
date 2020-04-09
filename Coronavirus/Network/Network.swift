@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class Network {
-    static func getAllCountries(completionHandler: @escaping ([Coronavirus]) -> Void, errorHandler: @escaping () -> Void) {
+    static func getAllCountries(completionHandler: @escaping ([Coronavirus]) -> Void, errorHandler: @escaping (String) -> Void) {
         let url = URL(string: "https://covid-19-data.p.rapidapi.com/country/all?format=undefined")!
         
         let headers: HTTPHeaders = [
@@ -23,7 +23,7 @@ class Network {
                     let coronavirus = try JSONDecoder().decode([Coronavirus].self, from: data)
                     completionHandler(coronavirus)
                 } catch {
-                    errorHandler()
+                    errorHandler("ERROR HANDLER: Network - getAllCountries *** \(error.localizedDescription)")
                 }
             }
         }
